@@ -1,0 +1,36 @@
+[env]
+TERM = "screen-256color"
+
+# 🖱 Mouse behavior
+[mouse]
+hide_when_typing = true
+
+[cursor.style]
+blinking = "Always"
+shape = "block"
+
+
+# 🔍 Text selection
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+# 🖥️ Window behavior
+[window]
+dynamic_title = true
+opacity = 1.0
+decorations = "none"
+dynamic_padding = true
+
+[general]
+import = ["themes/vague.toml"]
+
+[font]
+normal = { family = "Hurmit Nerd Font Mono", style = "Regular" }
+bold = { family = "Hurmit Nerd Font Mono", style = "Bold" }
+italic = { family = "Hurmit Nerd Font Mono", style = "Italic" }
+size = 17
+
+[window.padding]
+x = 5
+y = 5 
