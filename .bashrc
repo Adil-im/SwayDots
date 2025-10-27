@@ -58,6 +58,7 @@ alias checkout='git checkout'
 alias add='git add .'
 alias pull='git pull'
 alias clone='git clone'
+alias browse='gh browse'
 
 # Ricing stuff
 alias pipes='pipes.sh -t 3'
