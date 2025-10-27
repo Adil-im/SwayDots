@@ -3,10 +3,10 @@
   "spacing": 0,
   "height": 0,
   "margin-bottom": 0,
-  "margin-top": 8,
+  "margin-top": 6,
   "position": "top",
-  "margin-right": 9,
-  "margin-left": 9,
+  "margin-right": 5,
+  "margin-left": 5,
   "modules-left": [
     //"custom/pacman",
     "sway/workspaces"
@@ -41,14 +41,16 @@
     "format": " {value} ",
     "format-window-separator": " | ",
     //"persistent-workspaces": {
-     //   "⛩️": [],
-     //  " ": [],
-     // " ": [],
-     //   "🏛️": [],
-     //   "📜": [],
-    //},
+   //  " ۩ ":[], 
+   //    " ا":[],  
+   //	" ل ":[],
+   //	" م ": [],
+   //	" ر ": [],
+    // },
   },
- 
+
+
+
   //center
   //Window
   "sway/window": {
@@ -69,19 +71,24 @@
     "on-click": "blueman-manager",
     "tooltip": false,
   },
+
   //Clock
   "clock": {
     "format": "  {:%I:%M %p}",
-    "tooltip": false,
-  },
+    "tooltip": true,
+    "tooltip-format": "  {:%A, %B %d, %Y}",
+//    "on-click": "'Calendar' '$(cal)'",
+},
+	
   //Network
   "network": {
-    "format-wifi": "{essid}   {bandwidthDownBits}",
+    "format-wifi": "{essid}  ", //{bandwidthDownBits} for showing the bandwidth in bytes
     "format-ethernet": "  {bandwidthDownBits}",
     "format-disconnected": "No Network 󰤮 ",
     "interval": 1,
     "tooltip": false,
-    "on-click": "alacritty --class nmwui nmtui"
+    "on-click": "nmtui"
+		//"alacritty --class nmwui"
   },
   //Sound
   "pulseaudio": {

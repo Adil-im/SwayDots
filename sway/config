@@ -23,7 +23,7 @@ output eDP-1 {
 } 
 
 # Wallpaper
-output * bg /home/adil/Pictures/kyrr.png fill
+output * bg /home/adil/Pictures/clay-banks-u27Rrbs9Dwc-unsplash.jpg fill
 
 #apply gtk theme 
 exec gsettings set org.gnome.desktop.interface gtk-theme 'Carbon-Dark'
@@ -37,12 +37,12 @@ exec gsettings set org.gnome.desktop.interface gtk-theme 'Carbon-Dark'
 for_window [app_id = "nmwui"] floating enable
 
 ###Gaps
-gaps inner 8px
-gaps outer 8px
+gaps inner 4px
+gaps outer 4px
 
 ###Border
-default_border pixel 1.5px
-default_floating_border pixel 1.5px
+default_border pixel 1px
+default_floating_border pixel 1px
 
 ###Border Color
 #                       border     bg     text    ind   c_border
@@ -52,14 +52,13 @@ client.unfocused        #000000 #0F0F0F #d8cab8 #ebdcb2 #000000
 client.urgent           #fcb167 #0F0F0F #d8cab8 #fcb167 #fcb167
 client.placeholder      #ebdcb2 #0F0F0F #d8cab8 #ebdcb2 #ebdcb2
 
-
-
 ### Idle configuration
 #
 # Example configuration:
 #
 exec swayidle -w \
-	timeout 250 'swaylock -f' \
+	timeout 300 'swaylock -f' \
+	timeout 400 'systemctl suspend'  \
 #	timeout 60 'swaymsg "output * power off"' \
 #	resume 'swaymsg "output * power on"'
 #
@@ -71,8 +70,11 @@ exec swayidle -w \
 #
 input type:touchpad {
       dwt enabled
+      left_handed enabled
       tap enabled
       natural_scroll enabled
+      accel_profile "flat"
+      pointer_accel 1 
 }
 #
   #input type:keyboard {
@@ -93,14 +95,20 @@ bindsym $mod+t exec $term
 bindsym $mod+Return exec $term
 
 # Start wofi
-#bindsym $mod+d exec $menu
-bindsym $mod+w exec wofi
+bindsym $mod+d exec $menu
+bindsym $mod+w exec rofi -show run 
+
+# Okular
+bindsym $mod+o exec okular
 
 # Shut it down!
 bindsym $mod+Control+q exec shutdown -h now
 
 # Sleep
 bindsym $mod+s exec systemctl suspend
+
+# Swaylock
+bindsym Delete exec swaylock 
 
 # Start web-browser
 bindsym $mod+b exec firefox
@@ -114,8 +122,8 @@ bindsym $mod+Shift+q kill
 # Audacious
 bindsym $mod+m exec audacious
 
-# Flameshot gui
-bindsym Control+f exec flameshot gui
+# Special key to take a screenshot with Flameshot
+bindsym Insert exec flameshot gui
 
 # Despite the name, also works for non-floating windows.
 # Change normal to inverse to use left mouse button for resizing and right
@@ -148,6 +156,13 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+
+# Vim bindings for workspace
+bindsym $mod+h workspace $ws1
+bindsym $mod+j workspace $ws2
+bindsym $mod+k workspace $ws3
+bindsym $mod+l workspace $ws4
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -155,6 +170,7 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
 
 # Layout stuff:
 # Make the current focus fullscreen
@@ -173,7 +189,7 @@ bindsym Control+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym Control+minus scratchpad show
+bindsym Control+Shift+equal scratchpad show
 
 # Resizing containers:
 mode "resize" {
@@ -200,10 +216,6 @@ bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ t
 # Special keys to adjust brightness via brightnessctl
 bindsym --locked XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
 bindsym --locked XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
-
-# Special key to take a screenshot with grim
-bindsym Print exec grim
-
 
 # Status Bar:
 bar {

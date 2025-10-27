@@ -4,6 +4,7 @@
   font-size: 14.5px;
   padding: 0px;
   background: transparent;
+
 }
 
 /* Waybar */
@@ -64,6 +65,7 @@ window#waybar {
   background: #ebdcb2;
   transition-duration: 120ms;
 }
+
 
 /* PulseAudio */
 #pulseaudio:hover {

@@ -11,10 +11,15 @@ alias rm="rm -rf"
 alias ..="cd .."
 alias sleep='sudo zzz'
 alias day='brightnessctl set 100%'
+alias ntb='brightnessctl set 60%'
 alias night='brightnessctl set 40%'
 alias tar='tar -xvzf'
-alias yt-dl='yt-dlp -x --audio-format mp3 --audio-quality 0' 
+alias yt-dl='yt-dlp -4 -x --audio-format mp3 --audio-quality 0' 
 alias config='vim ~/.config/sway/config'
+alias code='vim dev' 
+
+## Error code - 2_ ERROR_CODES: 0,emergency_1,alerts_2,critical_3,errors_4,warning_5,notice_6,Info_7,,debug.
+alias joe="journalctl -p 2" 
 
 # More Speed
 alias soba='source .bashrc'
@@ -39,6 +44,7 @@ alias dr='sudo dnf remove'
 alias dupdate='sudo dnf upgrade'
 alias dupgrade='sudo dnf upgrade'
 alias dclear='sudo dnf autoremove'
+alias dclean='sudo dnf clean all'
 alias dsync='sudo dnf distro-sync' 
 alias dlist='sudo dnf list installed' 
 
@@ -76,4 +82,4 @@ fi
 export PATH="$PATH:/home/adil/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-. "$HOME/.cargo/env"
+#. "$HOME/.cargo/env"
