@@ -11,12 +11,14 @@ alias rm="rm -rf"
 alias ..="cd .."
 alias sleep='sudo zzz'
 alias day='brightnessctl set 100%'
+alias tg='.//opt/Telegram/Telegram'
 alias ntb='brightnessctl set 60%'
 alias night='brightnessctl set 40%'
-alias tar='tar -xvzf'
+alias tar='tar -xf'
 alias yt-dl='yt-dlp -4 -x --audio-format mp3 --audio-quality 0' 
 alias config='vim ~/.config/sway/config'
 alias code='vim dev' 
+alias lsh='ls -a' #access hidden folders
 
 ## Error code - 2_ ERROR_CODES: 0,emergency_1,alerts_2,critical_3,errors_4,warning_5,notice_6,Info_7,,debug.
 alias joe="journalctl -p 2" 
@@ -29,7 +31,9 @@ alias vido='vim TO-DO.md'
 alias clearh='cat /dev/null > ~/.bash_history'
 alias aud='audacious'
 alias fire='firefox'
-alias cpbash='cp .bashrc ~/github/dotfiles/.bashrc'
+alias cpbash='cp -r .bashrc ~/github/SwayDots/.bashrc'
+alias py="python3"
+alias suboot="sudo reboot"
 
 # XBPS Stuff
 alias xi='sudo xbps-install'
@@ -59,6 +63,7 @@ alias add='git add .'
 alias pull='git pull'
 alias clone='git clone'
 alias browse='gh browse'
+
 
 # Ricing stuff
 alias pipes='pipes.sh -t 3'

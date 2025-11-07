@@ -8,6 +8,8 @@ set $term alacritty
 set $menu pgrep rofi >/dev/null 2>&1 && killall rofi || rofi --show drun
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+exec_always { export GTK_THEME="Adwaita:dark"}
+
 # Workspace Name
     set $ws1 " ۩ " 
     set $ws2 " ا"
@@ -37,12 +39,12 @@ exec gsettings set org.gnome.desktop.interface gtk-theme 'Carbon-Dark'
 for_window [app_id = "nmwui"] floating enable
 
 ###Gaps
-gaps inner 8px
-gaps outer 8px
+gaps inner 4px
+gaps outer 4px
 
 ###Border
-default_border pixel 1.5px
-default_floating_border pixel 1.5px
+default_border pixel 1px
+default_floating_border pixel 1px
 
 ###Border Color
 #                       border     bg     text    ind   c_border
@@ -57,7 +59,8 @@ client.placeholder      #ebdcb2 #0F0F0F #d8cab8 #ebdcb2 #ebdcb2
 # Example configuration:
 #
 exec swayidle -w \
-	timeout 250 'swaylock -f' \
+	timeout 300 'swaylock -f' \
+	timeout 400 'systemctl suspend'  \
 #	timeout 60 'swaymsg "output * power off"' \
 #	resume 'swaymsg "output * power on"'
 #
@@ -69,8 +72,11 @@ exec swayidle -w \
 #
 input type:touchpad {
       dwt enabled
+      left_handed enabled
       tap enabled
       natural_scroll enabled
+      accel_profile "flat"
+      pointer_accel 1 
 }
 #
   #input type:keyboard {
@@ -91,14 +97,23 @@ bindsym $mod+t exec $term
 bindsym $mod+Return exec $term
 
 # Start wofi
-#bindsym $mod+d exec $menu
-bindsym $mod+w exec wofi
+bindsym $mod+d exec $menu
+bindsym $mod+w exec rofi -show run 
+
+# Okular
+bindsym $mod+o exec okular
+
+# Telegram desktop
+bindsym $mod+Shift+t exec .//opt/Telegram/Telegram
 
 # Shut it down!
 bindsym $mod+Control+q exec shutdown -h now
 
 # Sleep
 bindsym $mod+s exec systemctl suspend
+
+# Swaylock
+bindsym Delete exec swaylock 
 
 # Start web-browser
 bindsym $mod+b exec firefox
@@ -147,6 +162,12 @@ bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
+
+# Vim bindings for workspace
+bindsym $mod+h workspace $ws1
+bindsym $mod+j workspace $ws2
+bindsym $mod+k workspace $ws3
+bindsym $mod+l workspace $ws4
 
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
