@@ -8,6 +8,8 @@ set $term alacritty
 set $menu pgrep rofi >/dev/null 2>&1 && killall rofi || rofi --show drun
 set $menu $rofi_cmd -show combi -combi-modes drun#run -modes combi
 
+exec_always { export GTK_THEME="Adwaita:dark"}
+
 # Workspace Name
     set $ws1 " ۩ " 
     set $ws2 " ا"
@@ -95,11 +97,20 @@ bindsym $mod+t exec $term
 bindsym $mod+Return exec $term
 
 # Start wofi
-bindsym $mod+d exec $menu
+#bindsym $mod+ exec $menu
 bindsym $mod+w exec rofi -show run 
 
 # Okular
 bindsym $mod+o exec okular
+
+# Telegram desktop
+bindsym $mod+Shift+t exec .//opt/Telegram/Telegram
+
+# Network TUI
+bindsym $mod+i exec alacritty -e nmtui
+
+# Discord
+bindsym $mod+d exec .//opt/Discord/Discord
 
 # Shut it down!
 bindsym $mod+Control+q exec shutdown -h now
@@ -143,6 +154,10 @@ bindsym Control+Shift+Down focus down
 bindsym Control+Shift+Up focus up
 bindsym Control+Shift+Right focus right
 
+# MOVE FOCUS (with hjkl)
+bindsym Control+Shift+j focus left
+bindsym Control+Shift+k focus right
+
 # Move the focused window with arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
@@ -177,7 +192,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym Control+Shift+space floating toggle
+bindsym Control+space floating toggle
 
 # Swap focus between the tiling area and the floating area
 bindsym $mod+space focus mode_toggle
