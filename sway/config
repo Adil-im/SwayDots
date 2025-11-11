@@ -109,6 +109,9 @@ bindsym $mod+Shift+t exec .//opt/Telegram/Telegram
 # Network TUI
 bindsym $mod+i exec alacritty -e nmtui
 
+# pomodoro timer - cosmic chronos
+bindsym $mod+p exec chronos
+
 # Discord
 bindsym $mod+d exec .//opt/Discord/Discord
 
