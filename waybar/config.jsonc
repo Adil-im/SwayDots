@@ -87,7 +87,7 @@
     "format-disconnected": "No Network 󰤮 ",
     "interval": 1,
     "tooltip": false,
-    "on-click": "nmtui"
+    "on-click": "alacritty -e nmtui"
 		//"alacritty --class nmwui"
   },
   //Sound
