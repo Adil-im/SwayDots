@@ -17,9 +17,8 @@ alias night='brightnessctl set 40%'
 alias tar='tar -xf'
 alias yt-dl='yt-dlp -4 -x --audio-format mp3 --audio-quality 0' 
 alias config='vim ~/.config/sway/config'
-alias code='vim dev' 
 alias lsh='ls -a' #access hidden folders
-
+alias bake='gcc -O -Wall -W -std=c99'
 ## Error code - 2_ ERROR_CODES: 0,emergency_1,alerts_2,critical_3,errors_4,warning_5,notice_6,Info_7,,debug.
 alias joe="journalctl -p 2" 
 
@@ -34,6 +33,7 @@ alias fire='firefox'
 alias cpbash='cp -r .bashrc ~/github/SwayDots/.bashrc'
 alias py="python3"
 alias suboot="sudo reboot"
+alias code='cd ~/dev/c_programs/kings_cprograms/' 
 
 # XBPS Stuff
 alias xi='sudo xbps-install'
@@ -45,10 +45,10 @@ alias xq='sudo xbps-query' # to grep a package just - "xq -l | grep <package-nam
 # DNF Stuff
 alias di='sudo dnf install'
 alias dr='sudo dnf remove'
-alias dupdate='sudo dnf upgrade'
+alias update='sudo dnf upgrade'
 alias dupgrade='sudo dnf upgrade'
 alias dclear='sudo dnf autoremove'
-alias dclean='sudo dnf clean all'
+alias clean='sudo dnf clean all'
 alias dsync='sudo dnf distro-sync' 
 alias dlist='sudo dnf list installed' 
 
@@ -64,11 +64,11 @@ alias pull='git pull'
 alias clone='git clone'
 alias browse='gh browse'
 
-
 # Ricing stuff
 alias pipes='pipes.sh -t 3'
 alias pipe='pipes.sh'
 alias vim='nvim'
+alias clock='tty-clock -t -s -C 6'
 
 # Bash Prompt
 #PS1='\[\e[38;2;100;79;234m\]\w\$ '
@@ -76,6 +76,17 @@ PS1=" \[\e[00;34m\]λ \W \[\e[0m\]"
 
 export EDITOR=nvim
 export VISUAL=nvim
+
+export LS_COLORS="\
+di=38;5;147:\
+ln=38;5;183:\
+so=38;5;147:\
+pi=1;33:\
+ex=38;5;114:\
+*.c=38;5;116:\
+*.txt=38;5;252:\
+*.sh=38;5;183:\
+*.py=38;5;229:" # Pink lavender Python
 
 # Auto startx after login
 if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]];
@@ -88,4 +99,5 @@ fi
 export PATH="$PATH:/home/adil/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+
 #. "$HOME/.cargo/env"
