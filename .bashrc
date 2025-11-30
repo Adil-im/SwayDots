@@ -18,12 +18,16 @@ alias tar='tar -xf'
 alias yt-dl='yt-dlp -4 -x --audio-format mp3 --audio-quality 0' 
 alias config='vim ~/.config/sway/config'
 alias lsh='ls -a' #access hidden folders
-alias bake='gcc -O -Wall -W -std=c99'
+
+alias bake='gcc -O -pedantic -Wall -W -std=c89'
 ## Error code - 2_ ERROR_CODES: 0,emergency_1,alerts_2,critical_3,errors_4,warning_5,notice_6,Info_7,,debug.
+
 alias joe="journalctl -p 2" 
+
 
 # More Speed
 alias soba='source .bashrc'
+alias todo='bat --line-range 1:15 TO-DO.md | lolcat -r'
 alias viba='vim .bashrc'
 alias bld='build'
 alias vido='vim TO-DO.md'
@@ -69,6 +73,8 @@ alias pipes='pipes.sh -t 3'
 alias pipe='pipes.sh'
 alias vim='nvim'
 alias clock='tty-clock -t -s -C 6'
+alias fnk='fortune | cowsay | lolcat'
+
 
 # Bash Prompt
 #PS1='\[\e[38;2;100;79;234m\]\w\$ '
@@ -86,7 +92,8 @@ ex=38;5;114:\
 *.c=38;5;116:\
 *.txt=38;5;252:\
 *.sh=38;5;183:\
-*.py=38;5;229:" # Pink lavender Python
+*.mp3=38;5;211:\
+*.py=38;5;229:"
 
 # Auto startx after login
 if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]];
